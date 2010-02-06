@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.zycus.dotproject.bo">
+
+
+	<class name="BOProduct" table="product">
+	
+		<id name="productID" column="product_id">
+			<generator class="identity"></generator>
+		</id>
+		
+		<property name="productName" type="java.lang.String" column="product_name" />
+		<many-to-one name="productDepartment" class="BODepartment" column="product_department" lazy="false" />
+		
+		<set name="product" table="release_feature" lazy="false" cascade="all" >
+            <key column="release_id"/>
+            <many-to-many class="BOFeature" column="feature_id"/>
+        </set>
+		
+		<set name="releases" lazy="false" inverse="true" cascade="all">
+			<key column="release_product" />
+			<one-to-many class="BORelease"/>
+		</set>
+		
+		<set name="features" lazy="false" inverse="true" cascade="all">
+			<key column="feature_product" />
+			<one-to-many class="BOModule"/>
+		</set> 
+	
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.zycus.dotproject.bo">
+
+
+	<typedef class="com.zycus.dotproject.bo.GenericEnumUserType" name="taskMilestone">
+        <param name="enumClassName">com.zycus.dotproject.bo.TaskMilestone</param>
+        <param name="identifierMethod">getValue</param>
+    </typedef>
+    
+    <typedef class="com.zycus.dotproject.bo.GenericEnumUserType" name="taskDurationType">
+        <param name="enumClassName">com.zycus.dotproject.bo.TaskDurationType</param>
+        <param name="identifierMethod">getValue</param>
+    </typedef>
+    
+	<typedef class="com.zycus.dotproject.bo.GenericEnumUserType" name="taskStatus">
+        <param name="enumClassName">com.zycus.dotproject.bo.TaskStatus</param>
+        <param name="identifierMethod">getValue</param>
+    </typedef>
+    
+    <typedef class="com.zycus.dotproject.bo.GenericEnumUserType" name="taskPriority">
+        <param name="enumClassName">com.zycus.dotproject.bo.Priority</param>
+        <param name="identifierMethod">getValue</param>
+    </typedef>
+    
+    <typedef class="com.zycus.dotproject.bo.GenericEnumUserType" name="taskClientPublish">
+        <param name="enumClassName">com.zycus.dotproject.bo.TaskClientPublish</param>
+        <param name="identifierMethod">getValue</param>
+    </typedef>
+    
+	<typedef class="com.zycus.dotproject.bo.GenericEnumUserType" name="taskDynamic">
+        <param name="enumClassName">com.zycus.dotproject.bo.TaskDynamic</param>
+        <param name="identifierMethod">getValue</param>
+    </typedef>
+    
+    <typedef class="com.zycus.dotproject.bo.GenericEnumUserType" name="taskAccess">
+        <param name="enumClassName">com.zycus.dotproject.bo.TaskAccess</param>
+        <param name="identifierMethod">getValue</param>
+    </typedef>
+    
+    <typedef class="com.zycus.dotproject.bo.GenericEnumUserType" name="taskNotify">
+        <param name="enumClassName">com.zycus.dotproject.bo.TaskNotify</param>
+        <param name="identifierMethod">getValue</param>
+    </typedef>
+    
+    <typedef class="com.zycus.dotproject.bo.GenericEnumUserType" name="taskType">
+        <param name="enumClassName">com.zycus.dotproject.bo.TaskType</param>
+        <param name="identifierMethod">getValue</param>
+    </typedef>
+    
+
+	<class name="BOTask" table="tasks">
+	
+		<id name="taskID" column="task_id">
+			<generator class="identity"></generator>
+		</id>
+		
+		<property name="taskName" type="java.lang.String" column="task_name" />
+		
+		<many-to-one name="parentTask" column="task_parent" class="BOTask" lazy="false" />
+		
+		<property name="taskMilestone" type="taskMilestone" column="task_milestone" />
+		
+		<many-to-one name="project" column="task_project" class="BOProject" lazy="false" />
+		
+		<many-to-one name="owner" column="task_owner" class="BOUser" lazy="false" not-found="ignore" />
+		
+		<property name="startDate" type="java.sql.Timestamp" column="task_start_date"/>
+		
+		<property name="endDate" type="java.sql.Timestamp" column="task_end_date"/>	
+		
+		<property name="duration" type="float" column="task_duration"/>	
+		
+		<property name="taskDurationType" type="taskDurationType" column="task_duration_type"/>
+		
+		<property name="taskHoursWorked" type="float" column="task_hours_worked"/>	
+		
+		<property name="taskStatus" type="taskStatus" column="task_status" />
+		
+		<property name="taskPriority" type="taskPriority" column="task_priority" />
+		
+		<property name="percentageCompleted" column="task_percent_complete"/>
+		
+		<property name="taskDescription" type="java.lang.String" column="task_description" />
+		
+		<property name="taskBudget" type="float" column="task_target_budget" />
+		
+		<property name="taskRelatedUrl" type="java.lang.String" column="task_related_url" />
+		
+		<!-- many-to-one name="taskCreator" column="task_creator" class="BOUser" lazy="false" /-->
+		
+		<property name="taskOrder" type="int" column="task_order" />
+		
+		<property name="taskClientPublish" type="taskClientPublish" column="task_client_publish" />
+				
+		<property name="taskDynamic" type="taskDynamic" column="task_dynamic" />
+		
+		<property name="taskAccess" type="taskAccess" column="task_access" />
+		
+		<property name="taskNotify" type="taskNotify" column="task_notify" />
+		
+		<property name="taskDepartments" type="java.lang.String" column="task_departments" />
+	
+		<property name="taskType" type="taskType" column="task_type" />
+			
+		<set name="childTasks" lazy="false" inverse="true" cascade="all" where=" task_parent != task_id " >
+			<key column="task_parent" />
+			<one-to-many class="BOTask"  not-found="ignore"/>
+		</set>
+		
+		<set name="previousTasks" inverse="true" table="task_dependencies" cascade="all" lazy="false">
+            <key column="dependencies_task_id"/>
+            <many-to-many class="BOTask" column="dependencies_req_task_id"  not-found="ignore"/>
+        </set>	
+        
+        <set name="dependentTasks" inverse="false" table="task_dependencies" cascade="all" lazy="false" >
+            <key column="dependencies_req_task_id"/>
+            <many-to-many class="BOTask" column="dependencies_task_id"  not-found="ignore"/>
+        </set>	
+        
+        <set name="assineeUsers" table="user_tasks" cascade="none" lazy="false">
+            <key column="task_id" />
+            <many-to-many class="BOUser" column="user_id" not-found="ignore"/>
+        </set>
+        
+        <set name="taskLogs" lazy="false" inverse="true" cascade="all" >
+			<key column="task_log_task" />
+			<one-to-many class="BOTaskLog"/>
+		</set>
+		
+		<!-- set name="files" inverse="true" table="files" lazy="false" cascade="all" where=" file_id in(select max(fl.file_id) from files as fl group by fl.file_version_id) ">
+            <key column="file_task"/>
+            <many-to-many class="BOFile" column="file_id"/>
+        </set>
+		
+		<list name="customFieldValues" table="custom_fields_values" cascade="none" lazy="false">				
+            <key column="value_object_id"/>
+            <index></index>
+            <index-many-to-many column="value_field_id" class="BOCustomField">
+            <element column="value_charvalue" type="BOCustomeFieldValueMapping"/>            
+        </list-->
+        <!-- this is hot-fix, needs to be updated -->
+		<!-- property name="contactUsersString" type="java.lang.String" column="task_contacts"/-->
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.zycus.dotproject.bo">
+
+
+	<class name="BOComponent" table="components">
+		<id name="componentID" column="component_id">
+			<generator class="identity"></generator>
+		</id>
+		
+		<property name="componentName" type="java.lang.String" column="component_name" />
+		<many-to-one name="componentOwner" class="BOUser" column="component_owner"  lazy="false" />
+		
+		<set name="componentProduct" table="project_departments" lazy="false" cascade="all" >
+            <key column="component_id"/>
+            <many-to-many class="BOProduct" column="product_id"/>
+        </set>
+	</class>
+
+</hibernate-mapping>

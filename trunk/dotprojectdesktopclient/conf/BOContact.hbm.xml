@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.zycus.dotproject.bo">
+
+	<typedef class="com.zycus.dotproject.bo.GenericEnumUserType" name="userType">
+        <param name="enumClassName">UserType</param>
+        <param name="identifierMethod">getValue</param>
+    </typedef>
+
+	<class name="BOContact" table="contacts">
+		<id name="contactID" column="contact_id">
+			<generator class="identity"></generator>
+		</id>
+		
+		<property name="firstName" type="java.lang.String" column="contact_first_name" />
+		<property name="lastName" type="java.lang.String" column="contact_last_name" />		
+		<property name="phoneNumber" type="java.lang.String" column="contact_phone" />
+		<property name="contactTitle" type="java.lang.String" column="contact_title" />
+		<property name="dateOfBirth" type="java.sql.Timestamp" column="contact_birthday" />
+		<property name="contactEmail" type="java.lang.String" column="contact_email" />
+		<property name="contactMobile" type="java.lang.String" column="contact_mobile" />
+		
+		<many-to-one not-found="ignore" name="contactCompany" column="contact_company" class="BOCompany" lazy="false" />
+		<many-to-one not-found="ignore" name="contactDepartment" column="contact_department" class="BODepartment" lazy="false" />
+		
+	</class>
+
+</hibernate-mapping>

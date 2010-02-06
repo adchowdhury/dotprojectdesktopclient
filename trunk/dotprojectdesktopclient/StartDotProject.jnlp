@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Test Deployment -->
+<jnlp spec="1.0+"
+  codebase="file:///C:/Documents and Settings/aniruddha.chowdhury/Desktop/e/"
+  href="StartDotProject.jnlp">
+
+  <information>
+    <title>Dot Project desktop client</title>
+    <vendor>Dot Project Developers</vendor>
+    <homepage href="http://dotproject.net/"/>
+    <description>This a easy to use dotproject client. developed in Java</description>
+    <description kind="short">short description</description>
+    <!-- icon href="myicon.gif"/>
+    <icon kind="splash" href="mysplash.gif"/ -->
+    <offline-allowed/>
+  </information>
+
+  <security>
+    <all-permissions/>
+  </security>
+
+  <resources>
+    <j2se version="1.6+"/>
+    <jar href="dotProjectClient.jar" main="true"/>	
+  </resources>
+
+  <application-desc main-class="com.zycus.dotproject.StartDotProject"/>
+
+</jnlp>

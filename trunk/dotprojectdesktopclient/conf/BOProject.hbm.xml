@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.zycus.dotproject.bo">
+	<typedef class="com.zycus.dotproject.bo.GenericEnumUserType"
+		name="projectType">
+		<param name="enumClassName">com.zycus.dotproject.bo.ProjectType</param>
+		<param name="identifierMethod">getValue</param>
+	</typedef>
+	<typedef class="com.zycus.dotproject.bo.GenericEnumUserType"
+		name="projectStatus">
+		<param name="enumClassName">com.zycus.dotproject.bo.ProjectStatus</param>
+		<param name="identifierMethod">getValue</param>
+	</typedef>
+	<typedef class="com.zycus.dotproject.bo.GenericEnumUserType"
+		name="projectPriority">
+		<param name="enumClassName">com.zycus.dotproject.bo.Priority</param>
+		<param name="identifierMethod">getValue</param>
+	</typedef>
+	
+	<class name="BOProject" table="projects">
+	
+		<id column="project_id" name="projectID">
+			<generator class="identity" />
+		</id>
+		
+		<property column="project_name" generated="never" lazy="false" name="projectName" type="java.lang.String" />
+		<many-to-one class="BOUser" column="project_owner" lazy="false" name="projectOwner" />
+		<many-to-one class="BOCompany" column="project_company" lazy="false" name="projectCompany" not-found="ignore" />
+		<property column="project_start_date" generated="never" lazy="false" name="projectStartDate" type="java.sql.Timestamp" />
+		<property column="project_end_date" generated="never" lazy="false" name="projectEndDate" type="java.sql.Timestamp" />
+		<property column="project_type" generated="never" lazy="false" name="projectType" type="projectType" />
+		<property column="project_status" generated="never" lazy="false" name="projectStatus" type="projectStatus" />
+		<property column="project_priority" generated="never" lazy="false" name="projectPriority" type="projectPriority" />
+		<property column="project_description" generated="never" lazy="false" name="projectDescription" type="java.lang.String" />
+		
+		<set name="projectDepartments" table="project_departments" lazy="false" cascade="all" >
+            <key column="project_id"/>
+            <many-to-many class="BODepartment" column="department_id"/>
+        </set>
+		
+		<set name="tasks" cascade="all" inverse="true" lazy="true"  where=" task_parent = task_id ">
+			<key column="task_project" />
+			<one-to-many class="BOTask"  not-found="ignore"/>
+		</set>
+		
+		<!-- this is hot-fix, needs to be updated properly -->
+		<property name="contactUsersString" type="java.lang.String" column="project_contacts" />
+		
+		<!-- bag name="contactUsers" table="project_contacts" lazy="false" cascade="all" >
+            <key column="project_id"/>
+            <many-to-many class="BOUser" column="contact_id" not-found="ignore"/>
+        </bag -->
+	</class>
+</hibernate-mapping>

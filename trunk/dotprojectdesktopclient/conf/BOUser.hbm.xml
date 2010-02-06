@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.zycus.dotproject.bo">
+
+	<typedef class="com.zycus.dotproject.bo.GenericEnumUserType" name="userType">
+        <param name="enumClassName">com.zycus.dotproject.bo.UserType</param>
+        <param name="identifierMethod">getValue</param>
+    </typedef>
+    
+	<class name="BOUser" table="users">
+		<id name="userID" column="user_id">
+			<generator class="identity"></generator>
+		</id>
+		
+		<property name="loginName" type="java.lang.String" column="user_username" />
+		<property name="password" type="java.lang.String" column="user_password" />	
+		<many-to-one name="contact" column="user_contact" class="BOContact" lazy="false" cascade="all"/>
+		<property name="userType" type="userType" column="user_type" />
+		
+		<set name="comapaniesOwned" lazy="false" inverse="true">
+			<key column="company_owner" />
+			<one-to-many class="BOCompany"/>
+		</set>
+		
+		<set name="departmentsOwned" lazy="false" inverse="true">
+			<key column="dept_owner" not-null="false"/>
+			<one-to-many not-found="ignore" class="BODepartment"/>
+		</set>
+		
+		<!-- set name="assignedTasks" inverse="false" table="user_tasks" cascade="none" lazy="true">
+            <key column="user_id"/>
+            <many-to-many class="BOTask" column="task_id"/>
+        </set-->	
+		
+	</class>
+
+</hibernate-mapping>
