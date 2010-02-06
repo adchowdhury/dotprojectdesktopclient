@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.zycus.dotproject.bo">
+
+
+	<class name="BOCompany" table="companies">
+		<id name="companyID" column="company_id">
+			<generator class="identity"></generator>
+		</id>
+		
+		<property name="companyName" type="java.lang.String" column="company_name" />
+		<many-to-one name="companyOwner" class="BOUser" column="company_owner"  lazy="false" />
+		
+		<set name="departments" lazy="false" inverse="true" where=" dept_parent = 0 ">
+			<key column="dept_company" />
+			<one-to-many class="BODepartment"/>
+		</set>
+		
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.zycus.dotproject.bo">
+
+	
+	<typedef class="com.zycus.dotproject.bo.GenericEnumUserType" name="historyAction">
+        <param name="enumClassName">com.zycus.dotproject.bo.HistoryAction</param>
+        <param name="identifierMethod">valueOf</param>
+    </typedef>
+    
+    <typedef class="com.zycus.dotproject.bo.GenericEnumUserType" name="historyTable">
+        <param name="enumClassName">com.zycus.dotproject.bo.HistoryTable</param>
+        <param name="identifierMethod">valueOf</param>
+    </typedef>
+
+	<class name="BOHistory" table="history">
+	
+		<id name="historyID" column="history_id">
+			<generator class="identity"></generator>
+		</id>
+		
+		<property name="historyDate" type="java.util.Date" column="history_date" />
+		<many-to-one name="historyUser" column="history_user" class="BOUser" lazy="false" />
+		<property name="historyAction" type="historyAction" column="history_action" />
+		<property name="historyTable" type="historyTable" column="history_table" />
+		<property name="historyItem" type="java.lang.Long" column="history_item" />
+		<property name="historyProject" type="java.lang.Long" column="history_project"/>
+		<property name="historyName" type="java.lang.String" column="history_name"/>	
+		<property name="historyChanges" type="java.lang.String" column="history_changes"/>
+		<property name="historyDescription" type="java.lang.String" column="history_description"/>
+		
+		
+	</class>
+
+</hibernate-mapping>

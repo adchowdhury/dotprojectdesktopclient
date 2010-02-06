@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.zycus.dotproject.bo">
+
+
+	<class name="BOCheckListItem" table="features">
+		<id name="checkListItemID" column="checklistitem_id">
+			<generator class="identity"></generator>
+		</id>
+		
+		<property name="checkListItemName" type="java.lang.String" column="checklistitem_name" />
+		<property name="checkListItemCategory" type="java.lang.String" column="checklistitem_catogory" />
+	
+	</class>
+
+</hibernate-mapping>

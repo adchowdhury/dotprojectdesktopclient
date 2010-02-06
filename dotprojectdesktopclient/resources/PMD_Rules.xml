@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset xmlns="http://pmd.sf.net/ruleset/1.0.0" name="SMT_Selected_PMD_Rules" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd" xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd">
+<description>SMT PMD Rules</description>
+<rule ref="rulesets/basic.xml/EmptyCatchBlock">
+<priority>1</priority>
+</rule>
+<rule ref="rulesets/basic.xml/EmptyIfStmt">
+<priority>2</priority>
+</rule>
+<rule ref="rulesets/basic.xml/EmptyWhileStmt">
+<priority>2</priority>
+</rule>
+<rule ref="rulesets/basic.xml/EmptyTryBlock">
+<priority>1</priority>
+</rule>
+<rule ref="rulesets/basic.xml/EmptyFinallyBlock">
+<priority>1</priority>
+</rule>
+<rule ref="rulesets/basic.xml/EmptySwitchStatements">
+<priority>2</priority>
+</rule>
+<rule ref="rulesets/basic.xml/UnnecessaryConversionTemporary">
+<priority>2</priority>
+</rule>
+<rule ref="rulesets/basic.xml/ReturnFromFinallyBlock">
+<priority>1</priority>
+</rule>
+<rule ref="rulesets/basic.xml/EmptySynchronizedBlock">
+<priority>2</priority>
+</rule>
+<rule ref="rulesets/basic.xml/UnnecessaryReturn">
+<priority>2</priority>
+</rule>
+<rule ref="rulesets/basic.xml/EmptyStaticInitializer">
+<priority>2</priority>
+</rule>
+<rule ref="rulesets/basic.xml/UnconditionalIfStatement">
+<priority>1</priority>
+</rule>
+<rule ref="rulesets/basic.xml/EmptyStatementNotInLoop">
+<priority>1</priority>
+</rule>
+<rule ref="rulesets/basic.xml/CheckResultSet">
+<priority>2</priority>
+</rule>
+<rule ref="rulesets/braces.xml/IfStmtsMustUseBraces">
+<priority>3</priority>
+</rule>
+<rule ref="rulesets/braces.xml/WhileLoopsMustUseBraces">
+<priority>2</priority>
+</rule>
+<rule ref="rulesets/braces.xml/IfElseStmtsMustUseBraces">
+<priority>3</priority>
+</rule>
+<rule ref="rulesets/braces.xml/ForLoopsMustUseBraces">
+<priority>3</priority>
+</rule>
+<rule ref="rulesets/codesize.xml/NPathComplexity">
+<priority>3</priority>
+</rule>
+<rule ref="rulesets/codesize.xml/ExcessiveParameterList">
+<priority>1</priority>
+            <properties> 
+                 <property name="minimum" value="7"/> 
+             </properties> 
+</rule>
+<rule ref="rulesets/codesize.xml/CyclomaticComplexity">
+<priority>1</priority>
+            <properties> 
+                 <property name="reportLevel" value="30"/> 
+             </properties> 
+</rule>
+<rule ref="rulesets/codesize.xml/ExcessivePublicCount">
+<priority>3</priority>
+            <properties> 
+                 <property name="minimum" value="20"/> 
+             </properties> 
+</rule>
+<rule ref="rulesets/codesize.xml/TooManyFields">
+<priority>3</priority>
+            <properties> 
+                 <property name="maxfields" value="10"/> 
+             </properties> 
+</rule>
+<rule ref="rulesets/codesize.xml/NcssMethodCount">
+<priority>2</priority>
+            <properties> 
+                 <property name="minimum" value="200"/> 
+             </properties> 
+</rule>
+<rule ref="rulesets/codesize.xml/NcssTypeCount">
+<priority>2</priority>
+            <properties> 
+                 <property name="minimum" value="2000"/> 
+             </properties> 
+</rule>
+<rule ref="rulesets/codesize.xml/NcssConstructorCount">
+<priority>2</priority>
+</rule>
+<rule ref="rulesets/codesize.xml/TooManyMethods">
+<priority>2</priority>
+            <properties> 
+                 <property name="maxmethods" value="50"/> 
+             </properties> 
+</rule>
+<rule ref="rulesets/design.xml/UseCollectionIsEmpty">
+<priority>3</priority>
+</rule>
+<rule ref="rulesets/imports.xml/DuplicateImports">
+<priority>2</priority>
+</rule>
+<rule ref="rulesets/imports.xml/DontImportJavaLang">
+<priority>2</priority>
+</rule>
+<rule ref="rulesets/imports.xml/UnusedImports">
+<priority>2</priority>
+</rule>
+<rule ref="rulesets/imports.xml/ImportFromSamePackage">
+<priority>3</priority>
+</rule>
+<rule ref="rulesets/imports.xml/TooManyStaticImports">
+<priority>2</priority>
+</rule>
+<rule ref="rulesets/javabeans.xml/MissingSerialVersionUID">
+<priority>1</priority>
+</rule>
+<rule ref="rulesets/strictexception.xml/AvoidCatchingThrowable">
+<priority>1</priority>
+</rule>
+<rule ref="rulesets/strictexception.xml/SignatureDeclareThrowsException">
+<priority>2</priority>
+</rule>
+<rule ref="rulesets/strictexception.xml/ExceptionAsFlowControl">
+<priority>3</priority>
+</rule>
+<rule ref="rulesets/strictexception.xml/AvoidCatchingNPE">
+<priority>2</priority>
+</rule>
+<rule ref="rulesets/strictexception.xml/AvoidThrowingRawExceptionTypes">
+<priority>1</priority>
+</rule>
+<rule ref="rulesets/strictexception.xml/AvoidThrowingNullPointerException">
+<priority>1</priority>
+</rule>
+<rule ref="rulesets/strictexception.xml/AvoidRethrowingException">
+<priority>1</priority>
+</rule>
+<rule ref="rulesets/strictexception.xml/DoNotExtendJavaLangError">
+<priority>2</priority>
+</rule>
+<rule ref="rulesets/strictexception.xml/DoNotThrowExceptionInFinally">
+<priority>1</priority>
+</rule>
+<rule ref="rulesets/unusedcode.xml/UnusedPrivateField">
+<priority>2</priority>
+</rule>
+<rule ref="rulesets/unusedcode.xml/UnusedLocalVariable">
+<priority>2</priority>
+</rule>
+<rule ref="rulesets/unusedcode.xml/UnusedPrivateMethod">
+<priority>2</priority>
+</rule>
+<rule ref="rulesets/unusedcode.xml/UnusedFormalParameter">
+<priority>3</priority>
+</rule>
+
+
+<rule  name="Avoid Variable name temp and test"
+  message="Avoid Variable name temp and test"
+  class="net.sourceforge.pmd.rules.XPathRule">
+  <description>
+  Avoid Variable name temp and test
+  </description>
+  <properties>
+    <property name="xpath">
+    <value>
+<![CDATA[
+//VariableDeclaratorId[@Image='test' or @Image ='temp']
+]]>
+    </value>
+    </property>
+  </properties>
+  <priority>3</priority>
+  <example>
+<![CDATA[
+public Class  Book
+{
+       public String temp;
+       public String test;
+}
+]]>
+  </example>
+</rule>
+<rule  name="Pass all pertinent data to exceptions"
+  message="Pass all pertinent data to exceptions"
+  class="net.sourceforge.pmd.rules.XPathRule">
+  <description>
+  Pass all pertinent data to exceptions
+  </description>
+  <properties>
+    <property name="xpath">
+    <value>
+<![CDATA[
+//ThrowStatement/Expression/PrimaryExpression/PrimaryPrefix/AllocationExpression/Arguments[count(*)=0]
+]]>
+    </value>
+    </property>
+  </properties>
+  <priority>2</priority>
+  <example>
+<![CDATA[
+     throw new UserNotFoundException(); // avoid this statement
+     throw new UserNowFoundException(""User Not Found; having user id -> "" + userId);"
+
+]]>
+  </example>
+</rule>
+<rule  name="Donot wrap exceptions unnecessarily"
+  message="Donot wrap exceptions unnecessarily"
+  class="net.sourceforge.pmd.rules.XPathRule">
+  <description>
+  Donot wrap exceptions unnecessarily
+  </description>
+  <properties>
+    <property name="xpath">
+    <value>
+<![CDATA[
+//CatchStatement[count(Block/BlockStatement/Statement) >1
+  and
+  FormalParameter/Type/ReferenceType/
+ClassOrInterfaceType/@Image = Block/BlockStatement/
+Statement/ThrowStatement/Expression/PrimaryExpression/
+PrimaryPrefix/AllocationExpression/ClassOrInterfaceType/@Image
+  and
+  count(Block/BlockStatement/Statement/ThrowStatement
+/Expression/PrimaryExpression/PrimaryPrefix/AllocationExpression
+/Arguments/ArgumentList/Expression) = 1
+  and
+  FormalParameter/VariableDeclaratorId = Block/BlockStatement
+/Statement/ThrowStatement/Expression/PrimaryExpression
+/PrimaryPrefix/AllocationExpression/Arguments/ArgumentList
+/Expression/PrimaryExpression/PrimaryPrefix/Name
+  ]
+]]>
+    </value>
+    </property>
+  </properties>
+  <priority>1</priority>
+  <example>
+<![CDATA[
+ catch(Exception e) { 
+                 logger.error(e,e); 
+                 throw new Exception(e); // avoid warp exception unnecessarily
+               } 
+             catch(Exception e) { 
+                 logger.error(e,e); 
+                 throw e;                
+              } 
+]]>
+  </example>
+</rule>
+<rule  name="wrap original exception"
+  message="Always wrap original exception before creating and throwing new exception"
+  class="net.sourceforge.pmd.rules.XPathRule">
+  <description>
+  Always wrap original exception before creating and throwing new exception
+  </description>
+  <properties>
+    <property name="xpath">
+    <value>
+<![CDATA[
+//ThrowStatement//AllocationExpression//ArgumentList//PrimaryExpression//PrimarySuffix
+]]>
+    </value>
+    </property>
+  </properties>
+  <priority>2</priority>
+  <example>
+<![CDATA[
+            throw new AuditLogException(e.getMessage()) // avoid  e.getMessage()
+              throw new AuditLogException(e)
+]]>
+  </example>
+</rule>
+<rule  name="NoPreparedStatementInLoop"
+  message="Don't create prepared statement in loop. "
+  class="net.sourceforge.pmd.rules.XPathRule">
+  <description>
+  Don't create prepared statement in loop. 
+It can cause "maximum open cursors exceeded". 
+
+  </description>
+  <properties>
+    <property name="xpath">
+    <value>
+<![CDATA[
+//ForStatement//Block//PrimaryPrefix//Name[ends-with(@Image, '.prepareStatement') ]
+]]>
+    </value>
+    </property>
+  </properties>
+  <priority>2</priority>
+  <example>
+<![CDATA[
+public class test {
+
+ public void show () {
+  
+    for(int i=0;i<10;i++)
+	{
+    PreparedStatement updateSales = con.prepareStatement(
+        "UPDATE COFFEES SET SALES = ? WHERE COF_NAME LIKE ? ");
+    } 
+ }
+}
+
+]]>
+  </example>
+</rule>
+<rule  name="DonotUseStatement"
+  message="Do not use 'Statement' "
+  class="net.sourceforge.pmd.rules.XPathRule">
+  <description>
+  Donot use 'Statement' since it can be potential security issue
+
+  </description>
+  <properties>
+    <property name="xpath">
+    <value>
+<![CDATA[
+//ClassOrInterfaceType[starts-with(@Image,'Statement')]
+]]>
+    </value>
+    </property>
+  </properties>
+  <priority>2</priority>
+  <example>
+<![CDATA[
+public class test {
+
+ public void show () {
+  
+Statement stmt = con.createStatement();
+
+ }
+}
+
+]]>
+  </example>
+</rule>
+<rule  name="DonotUse_System.out.println"
+  message="Do not Use System.out.println"
+  class="net.sourceforge.pmd.rules.XPathRule">
+  <description>
+  There should be no System.out.println. 
+This is since it will be lost in case application
+ server is started as a service. Also logs coming on 
+console is annoying. Use logger instead.
+
+  </description>
+  <properties>
+    <property name="xpath">
+    <value>
+<![CDATA[
+//PrimaryPrefix//Name[starts-with(@Image,'System.out.println')]
+]]>
+    </value>
+    </property>
+  </properties>
+  <priority>1</priority>
+  <example>
+<![CDATA[
+public class test {
+
+ public void show () {
+  
+  System.out.println("hello");
+ }
+}
+
+]]>
+  </example>
+</rule>
+<rule  name="UseGuardedLogging"
+  message="Use guarded logging to save string object 
+creation in case logger level is stricter"
+  class="net.sourceforge.pmd.rules.XPathRule">
+  <description>
+  Use "guarded logging" to save string object 
+creation in case logger level is stricter
+  </description>
+  <properties>
+    <property name="xpath">
+    <value>
+<![CDATA[
+//MethodDeclaration//PrimaryPrefix/Name[ends-with(@Image, '.debug')
+and 
+not(
+ancestor::IfStatement//PrimaryPrefix/Name[ends-with(@Image, '.isDebugEnabled')
+or
+starts-with(@Image, 'isDebug')
+])
+]
+]]>
+    </value>
+    </property>
+  </properties>
+  <priority>2</priority>
+  <example>
+<![CDATA[
+public class test {
+ public void show () {  
+   logger.debug("Add Audit Log is " + query); // invalid
+   if (logger.isDebugEnabled()) {
+		logger.debug("Add Audit Log is " + query); // valid
+   }
+ }
+}
+
+]]>
+  </example>
+</rule>
+
+ <rule  name="AvoidGettingZyLoggerByStringLiteral"
+  message="Avoid getting ZyLogger Instance by String literal Use getClass().getName()"
+  class="net.sourceforge.pmd.rules.XPathRule">
+  <description>
+  Avoid getting ZyLogger Instance by String literal Use getClass().getName()
+  </description>
+  <properties>
+    <property name="xpath">
+    <value>
+<![CDATA[
+//VariableInitializer//PrimaryPrefix/Name[
+starts-with(@Image, 'ZyLogger.getInstance')
+and
+ancestor::*/child::PrimarySuffix//PrimaryPrefix/Literal]
+]]>
+    </value>
+    </property>
+  </properties>
+  <priority>2</priority>
+  <example>
+<![CDATA[
+// wrong usage
+private static final ZyLogger logger = ZyLogger.getInstance("app.zycus.imdm.itemmaster.workflow");
+// right usage
+private static final ZyLogger logger = ZyLogger.getInstance(getClass().getName()); 
+
+]]>
+  </example>
+</rule>
+
+<rule  name="CloseStatementsPreparedStatementsAndResultSetsByDBUtlity"
+  message="Close statements prepared statements and result sets using the central DB Utility."
+  class="net.sourceforge.pmd.rules.XPathRule">
+  <description>
+  Close statements, prepared statements and result sets using the central DB Utility.
+  </description>
+  <properties>
+    <property name="xpath">
+    <value>
+<![CDATA[
+//MethodDeclaration//Statement//PrimaryPrefix//Name[
+ends-with(@Image, '.close') 
+and 
+not(starts-with(@Image, 'DBUtility')  )
+and
+not(count(./preceding::ImportDeclaration//Name[ends-with(@Image,'Statement') or ends-with(@Image,'java.sql')])=0)
+and
+starts-with(@Image, 
+//VariableDeclaratorId[../..//ClassOrInterfaceType[
+ends-with(@Image,'PreparedStatement')  or
+ends-with(@Image,'Statement')  or
+ends-with(@Image,'ResultSet')
+]]/@Image
+)
+]
+]]>
+    </value>
+    </property>
+  </properties>
+  <priority>2</priority>
+  <example>
+<![CDATA[
+preparedStatement.close();// invalid
+DBUtility.close(preparedStatement); // valid
+
+statement.close();// invalid
+DBUtility.close(statement); // valid
+
+resultSet.close();// invalid
+DBUtility.close(resultSet);// valid
+
+]]>
+  </example>
+</rule>
+</ruleset>

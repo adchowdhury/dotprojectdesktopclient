@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.zycus.dotproject.bo">
+
+    <typedef class="com.zycus.dotproject.bo.GenericEnumUserType" name="fileType">
+        <param name="enumClassName">com.zycus.dotproject.bo.FileCategory</param>
+        <param name="identifierMethod">getValue</param>
+    </typedef>
+    
+	<class name="BOFile" table="files">
+		<id name="fileID" column="file_id">
+			<generator class="identity"></generator>
+		</id>
+		
+		<property name="realFilename" type="java.lang.String" column="file_name" />
+		
+		<property name="folder" column="file_folder" />
+		
+		<many-to-one name="project" column="file_project" class="BOProject" lazy="false" />
+		
+		<property name="taskID" column="file_task" />
+		
+		<property name="taskName" formula="(select t.task_name from tasks t, files f where t.task_id=f.file_task and f.file_id=file_id)"  lazy="false" insert="false" update="false"/>		
+		
+		<property name="fileName" type="java.lang.String" column="file_real_filename" />
+		
+		<property name="fileParent" column="file_parent" />
+
+		<property name="fileDescription" type="java.lang.String" column="file_description" />
+		
+		<property name="fileMimeType" type="java.lang.String" column="file_type" />
+		
+		<many-to-one name="fileOwner" column="file_owner" class="BOUser" lazy="false" />
+		
+		<property name="fileDate" type="java.sql.Timestamp" column="file_date" />
+		
+		<property name="fileSize" column="file_size" />
+		
+		<property name="fileVersion" column="file_version" />
+		
+		<property name="fileIcon" type="java.lang.String" column="file_icon" />
+		
+		<property name="fileCategory" type="fileType" column="file_category" />
+
+		<property name="fileCheckout" type="java.lang.String" column="file_checkout" />
+		
+		<property name="fileCheckoutReason" type="java.lang.String" column="file_co_reason" />
+		
+		<property name="rootFileID" column="file_version_id" />
+		
+		<property name="versionCount" formula="(select count(1) from files f where f.file_version_id = file_version_id group by f.file_version_id)"  lazy="false" insert="false" update="false"/>
+		
+		<many-to-one name="rootVersionFile" column="file_version_id" class="BOFile" lazy="false" insert="false" update="false"/>
+		
+	</class>
+
+</hibernate-mapping>

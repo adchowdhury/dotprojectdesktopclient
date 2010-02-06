@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.zycus.dotproject.bo">
+
+
+	<class name="BOFeature" table="features">
+		<id name="featureID" column="feature_id">
+			<generator class="identity"></generator>
+		</id>
+		
+		<property name="featureName" type="java.lang.String" column="feature_name" />
+		<many-to-one name="featureProduct" class="BOProduct" column="feature_product" lazy="false" />
+		
+	</class>
+
+</hibernate-mapping>

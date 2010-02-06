@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.zycus.dotproject.bo">
+
+	<class name="BOCustomField" table="custom_fields_struct">
+	
+		<id name="customFieldID" column="field_id">
+			<generator class="identity"></generator>
+		</id>
+		
+		<property name="customFieldModule" type="java.lang.String" column="field_module" />
+		<property name="customFieldPage" type="java.lang.String" column="field_page" />		
+		<property name="customFieldHtmlType" type="java.lang.String" column="field_htmltype" />
+		<property name="customFieldDataType" type="java.lang.String" column="field_datatype" />
+		<property name="customFieldOrder" column="field_order" />
+		<property name="customFieldName" type="java.lang.String" column="field_name" />
+		<property name="customFieldExtragas" type="java.lang.String" column="field_extratags" />
+		<property name="customFieldDescription" type="java.lang.String" column="field_description" />
+	</class>
+
+</hibernate-mapping>

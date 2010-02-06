@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.zycus.dotproject.bo">
+
+
+	<typedef class="com.zycus.dotproject.bo.GenericEnumUserType" name="taskLogProblem">
+        <param name="enumClassName">com.zycus.dotproject.bo.TaskLogProblem</param>
+        <param name="identifierMethod">getValue</param>
+    </typedef>
+    
+   
+    <typedef class="com.zycus.dotproject.bo.GenericEnumUserType" name="taskLogReference">
+        <param name="enumClassName">com.zycus.dotproject.bo.TaskLogReference</param>
+        <param name="identifierMethod">getValue</param>
+    </typedef>
+    
+
+	<class name="BOTaskLog" table="task_log">
+	
+		<id name="taskLogID" column="task_log_id">
+			<generator class="identity"></generator>
+		</id>
+		
+		<many-to-one name="taskLogTask" column="task_log_task" class="BOTask" lazy="false" />
+		
+		<property name="taskLogName" type="java.lang.String" column="task_log_name" />
+		
+		<property name="taskLogDescription" type="java.lang.String" column="task_log_description" />
+		
+		<many-to-one name="taskLogCreator" column="task_log_creator" class="BOUser" lazy="false" />
+		
+		<property name="taskLogHours" type="float" column="task_log_hours"/>	
+		
+		<property name="taskLogDate" type="java.sql.Timestamp" column="task_log_date"/>
+		
+		<property name="taskLogProblem" type="taskLogProblem" column="task_log_problem" />
+		
+		<property name="taskLogReference" type="taskLogReference" column="task_log_reference" />
+        
+	</class>
+
+</hibernate-mapping>
