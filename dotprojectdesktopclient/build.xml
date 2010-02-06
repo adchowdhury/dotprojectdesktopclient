@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="createSingleJar" name="Dot Project Client">
+	<!--this file was created by Eclipse Runnable JAR Export Wizard-->
+	<!--ANT 1.7 is required                                        -->
+	<!--Need to exclude the main hibernate file, so that jar can be independent -->
+	
+	<target name="createSingleJar" depends="prepare">
+		<jar destfile="./dotProjectClient.jar" filesetmanifest="mergewithoutmain">
+			<manifest>
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Main-Class" value="com.zycus.dotproject.StartDotProject" />
+				<attribute name="Class-Path" value="." />
+			</manifest>
+			<fileset dir="./bin" />
+			<zipfileset excludes="META-INF/*.*" src="./lib/antlr.jar" />
+			<zipfileset excludes="META-INF/*.*" src="./lib/cglib.jar" />
+			<zipfileset excludes="META-INF/*.*" src="./lib/commons-collections.jar" />
+			<zipfileset excludes="META-INF/*.*" src="./lib/commons-logging.jar" />
+			<zipfileset excludes="META-INF/*.*" src="./lib/dom4j.jar" />
+			<zipfileset excludes="META-INF/*.*" src="./lib/hibernate3.jar" />
+			<zipfileset excludes="META-INF/*.*" src="./lib/log4j.jar" />
+			<zipfileset excludes="META-INF/*.*" src="./lib/mysql-connector-java-5.0.4-bin.jar" />
+			<zipfileset excludes="META-INF/*.*" src="./lib/jboss-j2ee.jar" />
+            <zipfileset excludes="META-INF/*.*" src="./lib/jsr173_1.0_api-1.0.jar"/>
+            <zipfileset excludes="META-INF/*.*" src="./lib/stax-1.2.0.jar"/>
+            <zipfileset excludes="META-INF/*.*" src="./lib/spring.jar"/>
+            <zipfileset excludes="META-INF/*.*" src="./lib/XMLWriter.jar"/>
+            <zipfileset excludes="META-INF/*.*" src="./lib/xmls_1.3.jar"/>
+			<zipfileset excludes="META-INF/*.*" src="./lib/reportWriter.jar"/>
+			<zipfileset excludes="META-INF/*.*" src="./lib/commons-net-2.0.jar"/>
+		</jar>
+	</target>
+	<target name="createSingleJarWithoutHBM" depends="prepare">
+		<delete file="./bin/hibernate.cfg.xml" />
+		<jar destfile="./dotProjectClient.jar" filesetmanifest="mergewithoutmain">
+			<manifest>
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Main-Class" value="com.zycus.dotproject.StartDotProject" />
+				<attribute name="Class-Path" value="." />
+			</manifest>
+			<fileset dir="./bin" />
+			<zipfileset excludes="META-INF/*.*" src="./lib/antlr.jar" />
+			<zipfileset excludes="META-INF/*.*" src="./lib/cglib.jar" />
+			<zipfileset excludes="META-INF/*.*" src="./lib/commons-collections.jar" />
+			<zipfileset excludes="META-INF/*.*" src="./lib/commons-logging.jar" />
+			<zipfileset excludes="META-INF/*.*" src="./lib/dom4j.jar" />
+			<zipfileset excludes="META-INF/*.*" src="./lib/hibernate3.jar" />
+			<zipfileset excludes="META-INF/*.*" src="./lib/log4j.jar" />
+			<zipfileset excludes="META-INF/*.*" src="./lib/mysql-connector-java-5.0.4-bin.jar" />
+			<zipfileset excludes="META-INF/*.*" src="./lib/jboss-j2ee.jar" />
+		</jar>
+	</target>
+	<target name="signJar">
+		<signjar jar="./dotProjectClient.jar" alias="yoda" storepass="aniruddha" keystore="./.keystore" />
+	</target>
+	<target name="prepare" depends="clean">
+		<mkdir dir="bin"/>
+		<javac srcdir="src/" destdir="bin/" source="1.6" target="1.6">
+			<classpath>
+				<fileset dir="lib" />
+			</classpath>
+		</javac>
+		<copy todir="bin">
+			<fileset dir="conf" />
+			<fileset dir="resources" />
+		</copy>
+	</target>
+	<target name="clean" if="" >
+		<delete file="./dotProjectClient.jar" />
+		<delete includeEmptyDirs="true" failonerror="false">
+			<fileset dir="bin" includes="**/*" />
+		</delete>
+		<delete dir="bin" failonerror="false"/>
+	</target>
+	
+	<target name="createJavaDoc">
+		<javadoc  sourcepath="src/" destdir="javaDoc">
+		</javadoc>
+	</target>
+	
+	<target name="createPMDResult">
+		<mkdir dir="reports"/>
+		<pmd rulesetfiles="resources/PMD_Rules.xml">
+			<formatter type="xml" toFile="reports/pmd_report.xml"/>
+			<fileset dir="src">
+	              <include name="**/*.java"/>
+	          </fileset>
+		</pmd>
+	</target>
+	
+	<taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask">
+		<classpath>
+			<fileset dir="lib/pmd" />
+		</classpath>
+	</taskdef>
+
+</project>
