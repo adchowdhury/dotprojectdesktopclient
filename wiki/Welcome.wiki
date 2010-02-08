@@ -6,5 +6,4 @@ We are in the process of consolidating all the documentation for this project.
 But in the meanwhile, we're providing the source code and the jars for the project.
 
 Thanks and Regards,
-
 DP Desktop Client Team
