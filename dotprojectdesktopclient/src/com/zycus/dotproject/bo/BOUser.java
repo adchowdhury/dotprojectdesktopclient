@@ -3,6 +3,7 @@ package com.zycus.dotproject.bo;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Locale;
 import java.util.Set;
 
 public class BOUser implements Comparable<BOUser>, Serializable {
@@ -22,6 +23,8 @@ public class BOUser implements Comparable<BOUser>, Serializable {
 	
 	private BOContact			contact				= null;
 	
+	private Locale				locale				= null;
+	
 	private Set<BOCompany>		comapaniesOwned		= null;
 	private Set<BODepartment>	departmentsOwned	= null;
 	private Set<BOTask>			assignedTasks	= null;
@@ -30,6 +33,15 @@ public class BOUser implements Comparable<BOUser>, Serializable {
 	{
 		
 	}
+	
+	public Locale getLocale() {
+		return locale;
+	}
+	
+	public void setLocale(Locale locale) {
+		this.locale = locale;
+	}
+	
 	/**
 	 * @return the assignedTasks
 	 */

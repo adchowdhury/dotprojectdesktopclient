@@ -1,5 +1,8 @@
 package com.zycus.dotproject.ui;
 
+import static com.zycus.dotproject.util.UILabelResourceManager.TEXT_BUTTON_CLOSE;
+import static com.zycus.dotproject.util.UILabelResourceManager.TEXT_BUTTON_LOGIN;
+
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -19,6 +22,7 @@ import com.zycus.dotproject.api.IUserManager;
 import com.zycus.dotproject.bo.BOUser;
 import com.zycus.dotproject.factory.UserManagerFactory;
 import com.zycus.dotproject.util.ApplicationContext;
+import com.zycus.dotproject.util.UILabelResourceManager;
 
 public class LoginScreen extends JPanel implements ActionListener {
 
@@ -53,9 +57,9 @@ public class LoginScreen extends JPanel implements ActionListener {
 		txtUserName = new JTextField(ApplicationContext.getUserPreferences().getLastLoggedInUserID(), 15);
 		txtPass = new JPasswordField("", 15);
 
-		btnOK = new JButton("Login");
+		btnOK = new JButton(UILabelResourceManager.getInstance().getString(TEXT_BUTTON_LOGIN));
 		btnOK.setIcon(IconHelper.getLoginIcon());
-		btnClose = new JButton("Close");
+		btnClose = new JButton(UILabelResourceManager.getInstance().getString(TEXT_BUTTON_CLOSE));
 		btnClose.setIcon(IconHelper.getCloseIcon());
 		
 		txtUserName.addCaretListener(new CaretListener() {
