@@ -34,7 +34,7 @@ public class ProjectManagerImpl extends BaseHibernateDataHandler implements IPro
 	}
 
 	public List<BOProject> getAllProjects(BOCompany company, BOUser user, ProjectStatus projectStatus) {
-		initCustomFields();
+		//initCustomFields();
 		SessionFactory sessionFactory = null;
 		Session session = null;
 		try {

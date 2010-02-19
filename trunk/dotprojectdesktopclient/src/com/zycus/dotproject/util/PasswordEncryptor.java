@@ -31,7 +31,7 @@ public final class PasswordEncryptor {
 			System.out.println(hexString.toString());
 			return hexString.toString();
 		} catch (NoSuchAlgorithmException nsae) {
-			throw new GenericException(nsae);
+			throw new GenericException("Problem while getEncryptedPassword", nsae, GenericException.Type.Normal);
 		}
 	}
 }

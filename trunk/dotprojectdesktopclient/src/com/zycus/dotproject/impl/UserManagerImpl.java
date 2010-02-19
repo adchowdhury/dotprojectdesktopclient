@@ -13,6 +13,7 @@ import org.hibernate.criterion.Restrictions;
 
 import com.zycus.dotproject.api.IUserManager;
 import com.zycus.dotproject.bo.BOUser;
+import com.zycus.dotproject.exception.GenericException;
 import com.zycus.dotproject.persistence.db.hibernate.BaseHibernateDataHandler;
 import com.zycus.dotproject.persistence.db.hibernate.HibernateSessionFactory;
 
@@ -38,7 +39,7 @@ public class UserManagerImpl extends BaseHibernateDataHandler implements IUserMa
 	}
 
 	public BOUser getUser(String userName, String password) {
-		initCustomFields();
+		//initCustomFields();
 		SessionFactory sessionFactory = null;
 		Session session = null;
 		BOUser user = null;
@@ -54,7 +55,7 @@ public class UserManagerImpl extends BaseHibernateDataHandler implements IUserMa
 				user = lstUsers.get(0);
 			}
 		} catch (Exception a_th) {
-			throw new RuntimeException(a_th);
+			throw new GenericException("Database problem", a_th, GenericException.Type.Database);
 		} finally {
 			close(sessionFactory, session);
 		}

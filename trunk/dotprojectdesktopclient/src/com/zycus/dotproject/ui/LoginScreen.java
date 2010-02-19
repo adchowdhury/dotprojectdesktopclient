@@ -7,6 +7,7 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.ConnectException;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -20,6 +21,7 @@ import javax.swing.event.CaretListener;
 
 import com.zycus.dotproject.api.IUserManager;
 import com.zycus.dotproject.bo.BOUser;
+import com.zycus.dotproject.exception.GenericException;
 import com.zycus.dotproject.factory.UserManagerFactory;
 import com.zycus.dotproject.util.ApplicationContext;
 import com.zycus.dotproject.util.UILabelResourceManager;
@@ -126,15 +128,21 @@ public class LoginScreen extends JPanel implements ActionListener {
 				JOptionPane.showMessageDialog(parent, "Blank username", "Validation", JOptionPane.ERROR_MESSAGE);
 				return;
 			}
-			BOUser user = userManager.getUser(txtUserName.getText(), txtPass.getText());
-			if (user != null) {
-				loginStatus = true;
-				parent.dispose();
-				ApplicationContext.setCurrentUser(user);
-				ApplicationContext.getUserPreferences().setLastLoggedInUserID(user.getLoginName());
-				ApplicationContext.saveSettings();
-			} else {
-				JOptionPane.showMessageDialog(parent, "Invalid username/password", "Validation", JOptionPane.ERROR_MESSAGE);
+			try {
+				BOUser user = userManager.getUser(txtUserName.getText(), txtPass.getText());
+				if (user != null) {
+					loginStatus = true;
+					parent.dispose();
+					ApplicationContext.setCurrentUser(user);
+					ApplicationContext.getUserPreferences().setLastLoggedInUserID(user.getLoginName());
+					ApplicationContext.saveSettings();
+				} else {
+					JOptionPane.showMessageDialog(parent, "Invalid username/password", "Validation", JOptionPane.ERROR_MESSAGE);
+				}
+			}catch(GenericException gExcp) {
+				if(gExcp.getType() == GenericException.Type.Database) {
+					JOptionPane.showMessageDialog(parent, "Could not connect to database server", "Connection problem", JOptionPane.ERROR_MESSAGE);
+				}
 			}
 		}
 	}
