@@ -19,6 +19,7 @@ import java.util.Locale;
 
 import javax.swing.JCheckBox;
 import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
@@ -358,5 +359,13 @@ public class CalendarADC extends JPanel implements ActionListener, MonthListener
 	public void setSelectable(boolean isSelectable) {
 		m_bIsSelectable = isSelectable;
 		m_chkSelectable.setVisible(m_bIsSelectable);
+	}
+	
+	public static void main(String[] args) {
+		JFrame frm = new JFrame("Datepicker demo");
+		frm.add(new CalendarADC(), BorderLayout.NORTH);
+		frm.setSize(300, 150);
+		frm.setLocationRelativeTo(null);
+		frm.setVisible(true);
 	}
 }
