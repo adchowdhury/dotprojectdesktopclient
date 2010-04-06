@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.zycus.pm.api.bo">   
+	<class name="RightsGroup" table="PM_RIGHT_GROUP">
+		<id name="groupID" column="RIGHT_ID">
+			<generator class="increment"></generator>
+		</id>
+		
+		<property name="groupName" type="java.lang.String" column="RIGHT_NAME" />
+		
+		<bag name="baseRights" table="PM_BASE_RIGHT" lazy="false" cascade="all" inverse="true">
+			<key column="RIGHT_ID"></key>
+			<one-to-many class="BaseRight" />
+		</bag>
+	</class>
+</hibernate-mapping>

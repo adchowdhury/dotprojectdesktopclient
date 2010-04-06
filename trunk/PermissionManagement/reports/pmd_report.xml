@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="4.2.5" timestamp="2009-09-19T10:47:46.843">
+<file name="E:\.hudson\jobs\Permission Management\workspace\src\com\zycus\pm\api\IPermissionRightsAPI.java">
+<violation beginline="1" endline="93" begincolumn="1" endcolumn="1" rule="ExcessivePublicCount" ruleset="Code Size Rules" package="com.zycus.pm.api" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#ExcessivePublicCount" priority="3">
+This class has a bunch of public methods and attributes
+</violation>
+</file>
+<file name="E:\.hudson\jobs\Permission Management\workspace\src\com\zycus\pm\api\bo\BaseRight.java">
+<violation beginline="40" endline="44" begincolumn="16" endcolumn="9" rule="UnusedFormalParameter" ruleset="Unused Code Rules" package="com.zycus.pm.api.bo" class="BaseRight" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedFormalParameter" priority="3">
+Avoid unused constructor parameters such as 'defaultIsAllowed'.
+</violation>
+<violation beginline="40" endline="44" begincolumn="16" endcolumn="9" rule="UnusedFormalParameter" ruleset="Unused Code Rules" package="com.zycus.pm.api.bo" class="BaseRight" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedFormalParameter" priority="3">
+Avoid unused constructor parameters such as 'priority'.
+</violation>
+</file>
+<file name="E:\.hudson\jobs\Permission Management\workspace\src\com\zycus\pm\api\bo\RightsGroup.java">
+<violation beginline="21" endline="21" begincolumn="35" endcolumn="54" rule="AvoidThrowingNullPointerException" ruleset="Strict Exception Rules" package="com.zycus.pm.api.bo" class="RightsGroup" externalInfoUrl="http://pmd.sourceforge.net/rules/strictexception.html#AvoidThrowingNullPointerException" priority="1">
+Avoid throwing null pointer exceptions.
+</violation>
+</file>
+<file name="E:\.hudson\jobs\Permission Management\workspace\src\com\zycus\pm\db\BaseHibernateDataHandler.java">
+<violation beginline="25" endline="25" begincolumn="35" endcolumn="50" rule="AvoidThrowingRawExceptionTypes" ruleset="Strict Exception Rules" package="com.zycus.pm.db" class="BaseHibernateDataHandler" method="performDBAction" externalInfoUrl="http://pmd.sourceforge.net/rules/strictexception.html#AvoidThrowingRawExceptionTypes" priority="1">
+Avoid throwing raw exception types.
+</violation>
+<violation beginline="50" endline="50" begincolumn="35" endcolumn="50" rule="AvoidThrowingRawExceptionTypes" ruleset="Strict Exception Rules" package="com.zycus.pm.db" class="BaseHibernateDataHandler" method="performDBAction" externalInfoUrl="http://pmd.sourceforge.net/rules/strictexception.html#AvoidThrowingRawExceptionTypes" priority="1">
+Avoid throwing raw exception types.
+</violation>
+</file>
+<file name="E:\.hudson\jobs\Permission Management\workspace\src\com\zycus\pm\db\HibernateSessionFactory.java">
+<violation beginline="88" endline="88" begincolumn="133" endcolumn="134" rule="wrap original exception" ruleset="SMT_Selected_PMD_Rules" package="com.zycus.pm.db" class="HibernateSessionFactory" method="initSessionFactory" priority="2">
+Always wrap original exception before creating and throwing new exception
+</violation>
+</file>
+<file name="E:\.hudson\jobs\Permission Management\workspace\src\com\zycus\pm\db\PermissionManagementDBHandler.java">
+<violation beginline="54" endline="54" begincolumn="49" endcolumn="62" rule="UseCollectionIsEmpty" ruleset="Design Rules" package="com.zycus.pm.db" class="PermissionManagementDBHandler" method="getRightGroup" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#UseCollectionIsEmpty" priority="3">
+Substitute calls to size() == 0 (or size() != 0) with calls to isEmpty()
+</violation>
+<violation beginline="58" endline="58" begincolumn="35" endcolumn="50" rule="AvoidThrowingRawExceptionTypes" ruleset="Strict Exception Rules" package="com.zycus.pm.db" class="PermissionManagementDBHandler" method="getRightGroup" externalInfoUrl="http://pmd.sourceforge.net/rules/strictexception.html#AvoidThrowingRawExceptionTypes" priority="1">
+Avoid throwing raw exception types.
+</violation>
+<violation beginline="75" endline="75" begincolumn="49" endcolumn="62" rule="UseCollectionIsEmpty" ruleset="Design Rules" package="com.zycus.pm.db" class="PermissionManagementDBHandler" method="getRightGroup" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#UseCollectionIsEmpty" priority="3">
+Substitute calls to size() == 0 (or size() != 0) with calls to isEmpty()
+</violation>
+<violation beginline="79" endline="79" begincolumn="35" endcolumn="50" rule="AvoidThrowingRawExceptionTypes" ruleset="Strict Exception Rules" package="com.zycus.pm.db" class="PermissionManagementDBHandler" method="getRightGroup" externalInfoUrl="http://pmd.sourceforge.net/rules/strictexception.html#AvoidThrowingRawExceptionTypes" priority="1">
+Avoid throwing raw exception types.
+</violation>
+<violation beginline="96" endline="96" begincolumn="49" endcolumn="62" rule="UseCollectionIsEmpty" ruleset="Design Rules" package="com.zycus.pm.db" class="PermissionManagementDBHandler" method="getBaseRight" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#UseCollectionIsEmpty" priority="3">
+Substitute calls to size() == 0 (or size() != 0) with calls to isEmpty()
+</violation>
+<violation beginline="100" endline="100" begincolumn="35" endcolumn="50" rule="AvoidThrowingRawExceptionTypes" ruleset="Strict Exception Rules" package="com.zycus.pm.db" class="PermissionManagementDBHandler" method="getBaseRight" externalInfoUrl="http://pmd.sourceforge.net/rules/strictexception.html#AvoidThrowingRawExceptionTypes" priority="1">
+Avoid throwing raw exception types.
+</violation>
+<violation beginline="131" endline="131" begincolumn="35" endcolumn="50" rule="AvoidThrowingRawExceptionTypes" ruleset="Strict Exception Rules" package="com.zycus.pm.db" class="PermissionManagementDBHandler" method="getAllAssociatedGroups" externalInfoUrl="http://pmd.sourceforge.net/rules/strictexception.html#AvoidThrowingRawExceptionTypes" priority="1">
+Avoid throwing raw exception types.
+</violation>
+<violation beginline="140" endline="140" begincolumn="39" endcolumn="50" rule="UseCollectionIsEmpty" ruleset="Design Rules" package="com.zycus.pm.db" class="PermissionManagementDBHandler" method="getAssociatedGroup" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#UseCollectionIsEmpty" priority="3">
+Substitute calls to size() == 0 (or size() != 0) with calls to isEmpty()
+</violation>
+<violation beginline="173" endline="173" begincolumn="35" endcolumn="50" rule="AvoidThrowingRawExceptionTypes" ruleset="Strict Exception Rules" package="com.zycus.pm.db" class="PermissionManagementDBHandler" method="getAllPermissionMaster" externalInfoUrl="http://pmd.sourceforge.net/rules/strictexception.html#AvoidThrowingRawExceptionTypes" priority="1">
+Avoid throwing raw exception types.
+</violation>
+</file>
+<file name="E:\.hudson\jobs\Permission Management\workspace\src\com\zycus\pm\impl\DefaultPermissionResolver.java">
+<violation beginline="20" endline="57" begincolumn="16" endcolumn="9" rule="NPathComplexity" ruleset="Code Size Rules" package="com.zycus.pm.impl" class="DefaultPermissionResolver" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#NPathComplexity" priority="3">
+The method isRightPermitted() has an NPath complexity of 684
+</violation>
+<violation beginline="29" endline="31" begincolumn="105" endcolumn="33" rule="EmptyIfStmt" ruleset="Basic Rules" package="com.zycus.pm.impl" class="DefaultPermissionResolver" method="isRightPermitted" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="2">
+Avoid empty if statements
+</violation>
+</file>
+<file name="E:\.hudson\jobs\Permission Management\workspace\src\com\zycus\pm\impl\DefaultPermissionRights.java">
+<violation beginline="32" endline="32" begincolumn="35" endcolumn="54" rule="AvoidThrowingNullPointerException" ruleset="Strict Exception Rules" package="com.zycus.pm.impl" class="DefaultPermissionRights" method="setPermissionResolver" externalInfoUrl="http://pmd.sourceforge.net/rules/strictexception.html#AvoidThrowingNullPointerException" priority="1">
+Avoid throwing null pointer exceptions.
+</violation>
+</file>
+<file name="E:\.hudson\jobs\Permission Management\workspace\src\com\zycus\pm\impl\PermissionManagerImpl.java">
+<violation beginline="172" endline="172" begincolumn="42" endcolumn="55" rule="UseCollectionIsEmpty" ruleset="Design Rules" package="com.zycus.pm.impl" class="PermissionManagerImpl" method="getPermissionMaster" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#UseCollectionIsEmpty" priority="3">
+Substitute calls to size() == 0 (or size() != 0) with calls to isEmpty()
+</violation>
+</file>
+<file name="E:\.hudson\jobs\Permission Management\workspace\src\com\zycus\pm\impl\PermissionRightsImpl.java">
+<violation beginline="1" endline="256" begincolumn="1" endcolumn="1" rule="ExcessivePublicCount" ruleset="Code Size Rules" package="com.zycus.pm.impl" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#ExcessivePublicCount" priority="3">
+This class has a bunch of public methods and attributes
+</violation>
+<violation beginline="140" endline="140" begincolumn="25" endcolumn="71" rule="IfElseStmtsMustUseBraces" ruleset="Braces Rules" package="com.zycus.pm.impl" class="PermissionRightsImpl" method="getBaseRight" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#IfElseStmtsMustUseBraces" priority="3">
+Avoid using if...else statements without curly braces
+</violation>
+<violation beginline="142" endline="142" begincolumn="25" endcolumn="36" rule="IfElseStmtsMustUseBraces" ruleset="Braces Rules" package="com.zycus.pm.impl" class="PermissionRightsImpl" method="getBaseRight" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#IfElseStmtsMustUseBraces" priority="3">
+Avoid using if...else statements without curly braces
+</violation>
+</file>
+<file name="E:\.hudson\jobs\Permission Management\workspace\src\com\zycus\pm\script\utilities\RightsGroupUtility.java">
+<violation beginline="14" endline="14" begincolumn="17" endcolumn="34" rule="DonotUse_System.out.println" ruleset="SMT_Selected_PMD_Rules" package="com.zycus.pm.script.utilities" class="RightsGroupUtility" method="createRightGroup" priority="1">
+Do not Use System.out.println
+</violation>
+<violation beginline="36" endline="36" begincolumn="17" endcolumn="34" rule="DonotUse_System.out.println" ruleset="SMT_Selected_PMD_Rules" package="com.zycus.pm.script.utilities" class="RightsGroupUtility" method="associateRightGroupToResource" priority="1">
+Do not Use System.out.println
+</violation>
+</file>
+<file name="E:\.hudson\jobs\Permission Management\workspace\src\com\zycus\pm\script\utilities\RightsUtility.java">
+<violation beginline="22" endline="22" begincolumn="17" endcolumn="34" rule="DonotUse_System.out.println" ruleset="SMT_Selected_PMD_Rules" package="com.zycus.pm.script.utilities" class="RightsUtility" method="createRight" priority="1">
+Do not Use System.out.println
+</violation>
+</file>
+</pmd>
