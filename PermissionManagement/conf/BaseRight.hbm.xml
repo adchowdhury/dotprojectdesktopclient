@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.zycus.pm.api.bo">   
+	<class name="BaseRight" table="PM_BASE_RIGHT">
+		<id name="baseRightID" column="BASE_RIGHT_ID">
+			<generator class="increment"></generator>
+		</id>
+		
+		<property name="rightDescription" type="java.lang.String" column="BASE_RIGHT_NAME" />
+		
+		<property name="defaultIsAllowed" column="DEFAUT_ALLOW_DENY" />
+		
+		<many-to-one cascade="all" name="group" column="RIGHT_ID"  class="RightsGroup" not-null="true" lazy="false"/>		
+		
+		<property name="priority" column="PRIORITY" />
+		
+	</class>
+</hibernate-mapping>

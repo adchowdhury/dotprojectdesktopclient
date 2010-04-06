@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.zycus.pm.impl.bo">   
+	<class name="AssignedRightsGroup" table="PM_RIGHTS_RESOURCE_RELATION">
+		<id name="relationPK" column="RELATION_PK">
+			<generator class="increment"></generator>
+		</id>
+		
+		<many-to-one name="rightGroup" class="com.zycus.pm.api.bo.RightsGroup" not-null="true" lazy="false" column="RIGHT_GROUP_ID"/>
+		
+		<property name="resourceTypeID" column="RESOURCE_TYPE_ID" />
+
+		<property name="resourceID" column="RESOURCE_ID" />		
+		
+	</class>
+</hibernate-mapping>
