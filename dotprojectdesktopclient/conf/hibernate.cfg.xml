@@ -6,19 +6,14 @@
 <hibernate-configuration>
 	<session-factory>
     	<!--  Microsoft SQL Server Connection -->
-		<property name="connection.url">jdbc:mysql://192.168.1.81/dotproject?zeroDateTimeBehavior=convertToNull</property>
-		<property name="connection.username">root</property>
+		<property name="connection.url">jdbc:mysql://{serverIP}/{databaseName}?zeroDateTimeBehavior=convertToNull</property>
+		<property name="connection.username">{userName}</property>
+		<property name="connection.password">{password}</property>
+				
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
-		<property name="connection.password">mysql</property>		
-		<!-- <property name="connection.datasource">java:jdbc/ZsdCmsPool</property>
-		<property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>  -->
-
-		<!-- <property name="connection.datasource"></property> -->		
-		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
-		
 		<property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
-					
+		
 		<property name="current_session_context_class">thread</property>
     	
     	<!-- this will show us all sql statements -->
@@ -37,10 +32,5 @@
 		<mapping resource="BODepartment.hbm.xml"/>
 		<mapping resource="BOFile.hbm.xml"/>
 		
-		<!-- event type="save-update">
-			 <listener class="com.zycus.dotproject.persistence.db.hibernate.FileSaveUpdateListener" />			
-		</event -->
-		
 	</session-factory>
-	
 </hibernate-configuration>
