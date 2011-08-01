@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project default="createSingleJar" name="Dot Project Client">
-	<!--this file was created by Eclipse Runnable JAR Export Wizard-->
-	<!--ANT 1.7 is required                                        -->
+	<!--this file was created by Eclipse Runnable JAR Export Wizard				-->
+	<!--ANT 1.7 is required                                        				-->
 	<!--Need to exclude the main hibernate file, so that jar can be independent -->
 	
 	<target name="createSingleJar" depends="prepare">
