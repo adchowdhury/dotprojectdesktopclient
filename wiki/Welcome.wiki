@@ -1,12 +1,18 @@
-Introduction to the dotProject Client
+This is a swing based UI for [http://www.dotproject.net dotProject]. Looks like [http://www.microsoft.com/project/2010/ Microsoft Project Plan]. Works with the database of [http://www.dotproject.net dotProject] directly. 
+This software was developed initially in [http://www.zycus.com Zycus]. 
 
-Hi Everybody,
 
-We are in the process of consolidating all the documentation for this project.
-But in the meanwhile, we're providing the source code and the jars for the project.
+Currently Listed in *[http://mac.softpedia.com/get/Utilities/dotProject-Client.shtml Softpedia]*
 
-Awarded as [100% FREE http://mac.softpedia.com/progClean/dotProject-Client-Clean-109480.html] by [Softpedia http://mac.softpedia.com]
-[http://mac.softpedia.com/base_img/softpedia_free_award_f.gif]
+Awarded as [http://mac.softpedia.com/progClean/dotProject-Client-Clean-109480.html 100% FREE] by *[http://mac.softpedia.com Softpedia]*
 
-Thanks and Regards, 
-DP Desktop Client Team
+
+
+[http://mac.softpedia.com/progClean/dotProject-Client-Clean-109480.html http://mac.softpedia.com/base_img/softpedia_free_award_f.gif] 
+
+How do you feel about this ? <g:plusone size="medium"></g:plusone>
+
+Note:
+After downloading the .jar file, please update the hibernate.cfg.xml file. For better usage, please add users & few projects first.
+
+Please feel free to request for new features or in case you found any problem please report.
