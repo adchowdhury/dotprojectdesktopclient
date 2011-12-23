@@ -5,7 +5,7 @@ Hi Everybody,
 We are in the process of consolidating all the documentation for this project.
 But in the meanwhile, we're providing the source code and the jars for the project.
 
-<img src="http://mac.softpedia.com/base_img/softpedia_free_award_f.gif"/>
+[http://mac.softpedia.com/base_img/softpedia_free_award_f.gif]
 
 Thanks and Regards, 
 DP Desktop Client Team
