@@ -27,6 +27,8 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.text.JTextComponent;
 
+import org.apache.log4j.Logger;
+
 import com.zycus.dotproject.ui.DotProjectContainer;
 import com.zycus.dotproject.ui.DotProjectMenubar;
 import com.zycus.dotproject.ui.DotProjectToolbar;
@@ -41,6 +43,7 @@ import com.zycus.dotproject.util.ErrorStream;
 import com.zycus.dotproject.util.LoginHandler;
 
 public class StartDotProject {
+	private static final Logger logger = Logger.getLogger(StartDotProject.class);
 
 	public static void main(String[] args) {
 		try {
@@ -51,6 +54,22 @@ public class StartDotProject {
 		} catch (FileNotFoundException excp) {
 			excp.printStackTrace();
 		}
+		
+//		if(System.getProperty("connection.url") == null || System.getProperty("connection.username") == null || System.getProperty("connection.password") == null) {
+//			System.err.println("connection.url or connection.username or connection.password is not provided");
+//			System.exit(-3);
+//		}
+		
+		System.err.println(args);
+		
+		if(args != null) {
+			System.err.println(args.length);
+		}
+		
+		System.err.println("connection.url : " + System.getProperty("connection.url"));
+		System.err.println("connection.username : " + System.getProperty("connection.username"));
+		System.err.println("connection.password : " + System.getProperty("connection.password"));
+		
 		
 		if (LoginHandler.getDefault().performLogin() == false)
 			System.exit(0);

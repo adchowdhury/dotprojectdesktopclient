@@ -5,10 +5,10 @@
 
 <hibernate-configuration>
 	<session-factory>
-    	<!--  Microsoft SQL Server Connection -->
-		<property name="connection.url">jdbc:mysql://{serverIP}/{databaseName}?zeroDateTimeBehavior=convertToNull</property>
-		<property name="connection.username">{userName}</property>
-		<property name="connection.password">{password}</property>
+    	<!--  Microsoft SQL Server Connection
+		<property name="connection.url">jdbc:mysql://localhost:3306/dotproject?zeroDateTimeBehavior=convertToNull</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password"></property> -->
 				
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>

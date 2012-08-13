@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="conf"/>
-	<classpathentry kind="src" path="resources"/>
+	<classpathentry excluding="PMD_Rules.xml" kind="src" path="resources"/>
 	<classpathentry kind="lib" path="lib/antlr.jar"/>
 	<classpathentry kind="lib" path="lib/cglib.jar"/>
 	<classpathentry kind="lib" path="lib/commons-collections.jar"/>
@@ -12,7 +12,7 @@
 	<classpathentry kind="lib" path="lib/log4j.jar"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-5.0.4-bin.jar"/>
 	<classpathentry kind="lib" path="lib/jboss-j2ee.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.6.0_17"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.6.0_29"/>
 	<classpathentry kind="lib" path="lib/commons-net-2.0.jar"/>
 	<classpathentry kind="lib" path="lib/commons-net-ftp-2.0.jar"/>
 	<classpathentry kind="lib" path="lib/reportWriter.jar"/>
