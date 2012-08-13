@@ -55,10 +55,10 @@ public class StartDotProject {
 			excp.printStackTrace();
 		}
 		
-//		if(System.getProperty("connection.url") == null || System.getProperty("connection.username") == null || System.getProperty("connection.password") == null) {
-//			System.err.println("connection.url or connection.username or connection.password is not provided");
-//			System.exit(-3);
-//		}
+		if(System.getProperty("connection.url") == null || System.getProperty("connection.username") == null || System.getProperty("connection.password") == null) {
+			System.err.println("connection.url or connection.username or connection.password is not provided");
+			System.exit(-3);
+		}
 		
 		System.err.println(args);
 		
