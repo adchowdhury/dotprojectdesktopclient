@@ -8,6 +8,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 
+import com.zycus.dotproject.util.ApplicationContext;
+
 public class HibernateSessionFactory {
 
 	/**
@@ -73,6 +75,16 @@ public class HibernateSessionFactory {
 		if (sessionFactory == null) {
 			try {
 				cfg.configure(CONFIG_FILE_LOCATION);
+				
+//				cfg.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/dotproject?zeroDateTimeBehavior=convertToNull");
+//				cfg.setProperty("hibernate.connection.username", "root");
+//				cfg.setProperty("hibernate.connection.password", "");
+				
+				cfg.setProperty("hibernate.connection.url", System.getProperty("connection.url"));
+				cfg.setProperty("hibernate.connection.username", System.getProperty("connection.username"));
+				cfg.setProperty("hibernate.connection.password", System.getProperty("connection.password"));
+
+				
 				//cfg.setListener("save-update", new FileSaveUpdateListener());
 				
 				String sessionFactoryJndiName = cfg.getProperty(Environment.SESSION_FACTORY_NAME);
@@ -85,6 +97,7 @@ public class HibernateSessionFactory {
 					sessionFactory = cfg.buildSessionFactory();
 				}
 			} catch (Exception a_th) {
+				a_th.printStackTrace();
 				// log.error(a_th);
 				throw new HibernateException("Could not initialize the Hibernate configuration : " + a_th.getMessage(), a_th);
 			}

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Test Deployment -->
 <jnlp spec="1.0+"
-  codebase="file:///C:/Documents and Settings/aniruddha.chowdhury/Desktop/e/"
-  href="StartDotProject.jnlp">
+  codebase="http://localhost/dotproject/clients/"
+  href="DotProject.jnlp">
 
   <information>
     <title>Dot Project desktop client</title>
@@ -20,10 +20,13 @@
   </security>
 
   <resources>
-    <j2se version="1.6+"/>
+    <j2se version="1.6+" />
     <jar href="dotProjectClient.jar" main="true"/>	
+	<property name="connection.url" value="jdbc:mysql://localhost:3306/dotproject?zeroDateTimeBehavior=convertToNull"/> 
+	<property name="connection.username" value="root"/> 
+	<property name="connection.password" value=""/> 
   </resources>
 
-  <application-desc main-class="com.zycus.dotproject.StartDotProject"/>
+  <application-desc main-class="com.zycus.dotproject.StartDotProject" />
 
 </jnlp>

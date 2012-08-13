@@ -9,7 +9,7 @@
 				<attribute name="Main-Class" value="com.zycus.dotproject.StartDotProject" />
 				<attribute name="Class-Path" value="." />
 			</manifest>
-			<fileset dir="./bin" />
+			<fileset dir="./dist/classes" />
 			<zipfileset excludes="META-INF/*.*" src="./lib/antlr.jar" />
 			<zipfileset excludes="META-INF/*.*" src="./lib/cglib.jar" />
 			<zipfileset excludes="META-INF/*.*" src="./lib/commons-collections.jar" />
@@ -28,47 +28,32 @@
 			<zipfileset excludes="META-INF/*.*" src="./lib/commons-net-2.0.jar"/>
 		</jar>
 	</target>
-	<target name="createSingleJarWithoutHBM" depends="prepare">
-		<delete file="./bin/hibernate.cfg.xml" />
-		<jar destfile="./dotProjectClient.jar" filesetmanifest="mergewithoutmain">
-			<manifest>
-				<attribute name="Built-By" value="${user.name}" />
-				<attribute name="Main-Class" value="com.zycus.dotproject.StartDotProject" />
-				<attribute name="Class-Path" value="." />
-			</manifest>
-			<fileset dir="./bin" />
-			<zipfileset excludes="META-INF/*.*" src="./lib/antlr.jar" />
-			<zipfileset excludes="META-INF/*.*" src="./lib/cglib.jar" />
-			<zipfileset excludes="META-INF/*.*" src="./lib/commons-collections.jar" />
-			<zipfileset excludes="META-INF/*.*" src="./lib/commons-logging.jar" />
-			<zipfileset excludes="META-INF/*.*" src="./lib/dom4j.jar" />
-			<zipfileset excludes="META-INF/*.*" src="./lib/hibernate3.jar" />
-			<zipfileset excludes="META-INF/*.*" src="./lib/log4j.jar" />
-			<zipfileset excludes="META-INF/*.*" src="./lib/mysql-connector-java-5.0.4-bin.jar" />
-			<zipfileset excludes="META-INF/*.*" src="./lib/jboss-j2ee.jar" />
-		</jar>
-	</target>
+	
 	<target name="signJar">
 		<signjar jar="./dotProjectClient.jar" alias="yoda" storepass="aniruddha" keystore="./.keystore" />
 	</target>
+	
 	<target name="prepare" depends="clean">
-		<mkdir dir="bin"/>
-		<javac srcdir="src/" destdir="bin/" source="1.6" target="1.6">
+		<mkdir dir="dist/classes"/>
+		<javac srcdir="src/" destdir="dist/classes/" source="1.6" target="1.6">
 			<classpath>
 				<fileset dir="lib" />
 			</classpath>
 		</javac>
-		<copy todir="bin">
+		<copy todir="dist/classes">
 			<fileset dir="conf" />
-			<fileset dir="resources" />
+			<fileset dir="resources" excludes="resources/PMD_Rules.xml">
+				<exclude name="PMD_Rules.xml"/>
+			</fileset>
 		</copy>
 	</target>
+	
 	<target name="clean" if="" >
 		<delete file="./dotProjectClient.jar" />
 		<delete includeEmptyDirs="true" failonerror="false">
-			<fileset dir="bin" includes="**/*" />
+			<fileset dir="dist/classes" includes="**/*" />
 		</delete>
-		<delete dir="bin" failonerror="false"/>
+		<delete dir="dist/classes" failonerror="false"/>
 	</target>
 	
 	<target name="createJavaDoc">
